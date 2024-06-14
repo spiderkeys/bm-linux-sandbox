@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 project(bm_core CXX)
 
-find_package(Boost REQUIRED COMPONENTS system)
-find_package(spdlog REQUIRED)
-find_package(ZLIB REQUIRED)
-
 # ==============================================
 # Targets
 
@@ -36,10 +32,6 @@ target_link_libraries( ${PROJECT_NAME}
 PUBLIC
     spdlog::spdlog
     Boost::system
-    ZLIB::ZLIB
-
-    concurrentqueue
-    readerwriterqueue
 )
 
 # ==============================================

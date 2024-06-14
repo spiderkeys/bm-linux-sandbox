@@ -3,9 +3,9 @@
 namespace bm {
 namespace core {
 
-Node::Node( NodeId id, const std::vector<std::string>& interfaces )
+Node::Node( NodeId id )
     : _id{ id }
-    , _net_if{ *this, interfaces }
+    , _net_if{ *this }
 {
 }
 
