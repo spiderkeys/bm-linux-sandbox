@@ -1,5 +1,11 @@
 # Requirements:
+- Ubuntu 24.04
 - cmake 3.22+
+
+- apt packages:
+```
+libgl-dev libwayland-dev libxkbcommon-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
+```
 
 # Building (with bmgui):
 ```bash

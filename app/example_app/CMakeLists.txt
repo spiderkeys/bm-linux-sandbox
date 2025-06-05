@@ -4,8 +4,6 @@ project(example_app CXX)
 # ==============================================
 # Dependencies
 
-find_package(Boost REQUIRED COMPONENTS program_options)
-
 include(FetchContent)
 
 FetchContent_Declare(ftxui
