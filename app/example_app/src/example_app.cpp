@@ -24,9 +24,6 @@
 #define STRESS_TEST_PORT 12357
 #define BM_BCL_PORT 2222
 
-// char input_buffer_[1600];
-// char output_buffer_[1600];
-
 // Polynomial used for Ethernet CRC-32
 constexpr uint32_t CRC32_POLYNOMIAL = 0xEDB88320;
 

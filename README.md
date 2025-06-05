@@ -49,3 +49,14 @@ sudo ./app/bmgui/bmgui
  - Heartbeats
  - Neighbor discovery
  - Topology discovery
+
+
+# Building and Running old Example App
+```bash
+
+mkdir build
+cd build
+cmake .. -DBUILD_TESTAPP=ON
+make -j4
+sudo ./app/example_app/example_app -n "deadbeefdeadbeef" --interface enp8s0 --mode sub
+```

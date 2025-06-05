@@ -41,9 +41,13 @@ FetchContent_MakeAvailable(spdlog)
 # Libraries
 add_subdirectory( lib/bm_core )
 
-# add_subdirectory( app/example_app )
 
 # Applications
 if(BUILD_BMGUI)
   add_subdirectory( app/bmgui )
+endif()
+
+# Old test app
+if(BUILD_TESTAPP)
+  add_subdirectory( app/example_app )
 endif()
