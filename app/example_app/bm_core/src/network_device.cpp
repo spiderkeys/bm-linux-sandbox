@@ -102,7 +102,7 @@ NetworkDevice::NetworkDevice( NetworkInterface& net_if, const std::string& inter
         _info.mac_address[i] = static_cast<uint8_t>( ifr.ifr_hwaddr.sa_data[i] );
     }
 
-    set_promiscuous_mode( "enx001ec0d1b1a9", 1 );
+    set_promiscuous_mode( interface.c_str(), 1 );
     if (bind(_sock_fd, (struct sockaddr *)&_sock_addr, sizeof(struct sockaddr_ll)) == -1) {
         ::close(_sock_fd);
         throw std::runtime_error( "Failed to find network interface" );
