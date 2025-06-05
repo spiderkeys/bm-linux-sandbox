@@ -11,7 +11,7 @@ namespace core {
 
 class Node {
 public:
-    explicit Node( NodeId id, const std::vector<std::string>& interfaces );
+    explicit Node( NodeId id );
     NodeId id() const { return _id; }
 
     NetworkInterface& net() { return _net_if; }

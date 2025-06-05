@@ -22,9 +22,10 @@ class NetworkInterface {
 public:
     static constexpr uint16_t IP_PROTO_BCMP = (0xBC);
 
-    NetworkInterface( Node& node, const std::vector<std::string>& interfaces );
+    NetworkInterface( Node& node );
     auto& devs() { return _net_devices; }
     std::shared_ptr<NetworkDevice> dev( size_t i ){ return _net_devices[ i ]; }
+
     // Send BCMP Message
      // Takes a destination, data, len
 
@@ -35,6 +36,9 @@ public:
     int bm_tx( const uint8_t* data, size_t len );
 
     // BCMP functions
+
+    // spdlog::info("LLA: {}", spdlog::to_hex(_lla.__in6_u.__u6_addr8, _lla.__in6_u.__u6_addr8 + 16)); 
+    // spdlog::info("ULA: {}", spdlog::to_hex(_ula.__in6_u.__u6_addr8, _ula.__in6_u.__u6_addr8 + 16)); 
 
 
 private:

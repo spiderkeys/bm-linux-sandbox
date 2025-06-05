@@ -10,14 +10,14 @@
 namespace bm {
 namespace core {
 
-NetworkInterface::NetworkInterface( Node& node, const std::vector<std::string>& interfaces ) 
+NetworkInterface::NetworkInterface( Node& node ) 
     : _node{ node }
 {
     // Create network devices
-    for( auto& iface : interfaces )
-    {
-        _net_devices.emplace_back( std::make_shared<NetworkDevice>( *this, iface ) );
-    }
+    // for( auto& iface : interfaces )
+    // {
+    //     _net_devices.emplace_back( std::make_shared<NetworkDevice>( *this, iface ) );
+    // }
 
     // Create IP Addresses
     _lla.__in6_u.__u6_addr32[0] = htonl(0xFD000000);
@@ -29,13 +29,13 @@ NetworkInterface::NetworkInterface( Node& node, const std::vector<std::string>& 
     _ula.__in6_u.__u6_addr32[1] = htonl(0x0);
     _ula.__in6_u.__u6_addr32[2] = htonl((_node.id() >> 32) & 0xFFFFFFFF);
     _ula.__in6_u.__u6_addr32[3] = htonl(_node.id() & 0xFFFFFFFF);
-
-    spdlog::info("LLA: {}", spdlog::to_hex(_lla.__in6_u.__u6_addr8, _lla.__in6_u.__u6_addr8 + 16)); 
-    spdlog::info("ULA: {}", spdlog::to_hex(_ula.__in6_u.__u6_addr8, _ula.__in6_u.__u6_addr8 + 16)); 
 }
 
 void NetworkInterface::send_bcmp_message( const std::string& dest_addr, uint8_t* data, size_t len )
 {
+    (void)dest_addr;
+    (void)data;
+    (void)len;
     // Choose which ports to send to based on dest_addr
     // Only allow the well defined multicast addresses for now
 

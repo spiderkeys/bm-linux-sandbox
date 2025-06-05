@@ -4,8 +4,6 @@ project(example_app CXX)
 # ==============================================
 # Dependencies
 
-find_package(Boost REQUIRED COMPONENTS program_options)
-
 include(FetchContent)
 
 FetchContent_Declare(ftxui
@@ -25,22 +23,28 @@ FetchContent_GetProperties(ftxui)
 add_executable( ${PROJECT_NAME}
   src/main.cpp
   src/example_app.cpp
+
+  bm_core/src/neighbor_table.cpp
+  bm_core/src/network_device.cpp
+  bm_core/src/network_interface.cpp
+  bm_core/src/node.cpp
 )
 
 target_link_libraries( ${PROJECT_NAME}
 PRIVATE
   Boost::program_options
+  Boost::asio
   ftxui::screen 
   ftxui::dom 
   ftxui::component
-
-  bm_core
+  spdlog::spdlog
 )
 
 target_include_directories(${PROJECT_NAME}
 PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
   $<INSTALL_INTERFACE:include>
+  bm_core/include
 )
 
 target_compile_options(${PROJECT_NAME}
